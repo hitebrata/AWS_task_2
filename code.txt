@@ -1,0 +1,18 @@
+Configure AWS credentials
+$aws configure
+Create keypair
+$aws ec2 create-key-pair -key-name NewKey
+Filter the security-group 
+$aws ec2 create-security-group help | grep "group"
+Descrive vpcs
+$ aws ec2 descrive-vpcs
+Now create the security group with the name "MySQL"
+$aws ec2 create-security-group --group-name MySQL --description "Allow mySQL Service"  --vpc-id vpc-fccb2b97
+To print the list of subnets.
+$ aws ec2 describe-subnets
+$ aws ec2 run-instance --image-id ami-5b087d34 --count 1 --instance-type t2.micro --    key-name NewKey --security-group-ids sg-055cc60454fea39f  --subnet-id  subnet- 98737af0
+Create a EBS volume.
+$ aws ec2 create-volume  --volume-type  gp2  --size  1  --availability-zone   ap-south-1a
+Attach EBS volume to the instnace.
+$aws ec2 attach-volume --volume-id  vol-0004768aff8928cc  --instance-id   i-04f915d8ed54f6d14 --device  /dev/sdf
+ 
